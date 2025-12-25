@@ -2,11 +2,26 @@ const express = require('express');
 
 const app = express();
 
-app.get("/user/:userId/:name/:password", (req,res) => {
-    console.log(req.params);
-    res.send({ firstName: "Thenvanthi", lastName: "V" });
+const { adminAuth, userAuth } = require('./middlewares/auth');
+// Handle Auth Middleware for all GET POST, ... requests
+app.use("/admin", adminAuth);
+
+app.post("/user/login", (req,res) => {
+    res.send("User logged in Successfully")
+});
+
+app.get("/user/data", userAuth, (req,res) => {
+    res.send("Get User")
+});
+
+app.get("/admin/getAllData", (req,res) => {
+       res.send("All Data Send")
+});
+
+app.get("/admin/deleteUser", (req,res) => {
+       res.send("Deleted a user");
 });
 
 app.listen(7777, () => {
     console.log("Server is successfully listening on port 7777...");
-});
+})
