@@ -2,24 +2,24 @@ const express = require('express');
 
 const app = express();
 
-const { adminAuth, userAuth } = require('./middlewares/auth');
-// Handle Auth Middleware for all GET POST, ... requests
+const { adminAuth, userAuth } = require('./middlewares/auth')
+
 app.use("/admin", adminAuth);
 
-app.post("/user/login", (req,res) => {
-    res.send("User logged in Successfully")
+app.post('/user/login', (req,res) => {
+    res.send("User logged in successfully")
 });
 
-app.get("/user/data", userAuth, (req,res) => {
-    res.send("Get User")
+app.get('/user/data', userAuth, (req,res) => {
+    res.send("User Data Send")
 });
 
 app.get("/admin/getAllData", (req,res) => {
-       res.send("All Data Send")
+    res.send("All Data from ADMIN")
 });
 
 app.get("/admin/deleteUser", (req,res) => {
-       res.send("Deleted a user");
+    res.send("Deleted a user")
 });
 
 app.listen(7777, () => {
