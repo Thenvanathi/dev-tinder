@@ -69,3 +69,5 @@ EP-8
 - Create a custom validate function for gender
 - Improve the DB schema - PUT all appropriate validations on each field in Schema
 - Add timestamps to the userSchema
+- Add API level validation on patch request & Signup post api
+- DATA Sanitizing - Add API validation for each field
