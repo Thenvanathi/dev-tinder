@@ -45,3 +45,9 @@ EP-6
 - Create a userSchema & user Model
 - Create POST /signup API to add data to database
 - Push some documents using API calls from postman
+- Error Handling using try, catch
+
+EP-6
+- JS object vs JSON (difference)
+- Add the express.json middleware to your app
+- Make your signup API dynamic to recive data from the end user
