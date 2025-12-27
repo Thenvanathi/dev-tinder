@@ -71,3 +71,5 @@ EP-8
 - Add timestamps to the userSchema
 - Add API level validation on patch request & Signup post api
 - DATA Sanitizing - Add API validation for each field
+- Install Validator
+- Explore Validator library function and Use validator funcs for password, email, photoURL, Gender

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 const userSchema = new mongoose.Schema(
   {
@@ -17,10 +18,20 @@ const userSchema = new mongoose.Schema(
       unique: true,
       minLength: 4,
       maxLength: 50,
+      validate(value) {
+        if (!validator.isEmail(value)) {
+            throw new Error("Invalid email address:" + value);
+        }
+      },
     },
     password: {
       type: String,
       require: true,
+      validate(value) {
+        if (!validator.isStrongPassword(value)) {
+            throw new Error("Enter a Strong Password:" + value);
+        }
+      }, 
     },
     age: {
       type: Number,
@@ -37,7 +48,12 @@ const userSchema = new mongoose.Schema(
     photoUrl: {
       type: String,
       default:
-        "https://media.istockphoto.com/id/1834886052/vector/man-facial-expressions-with-indifferent-mood-simple-flat-black-and-white-icon-silhouette.jpg?s=612x612&w=0&k=20&c=2V5FO6K2uJYV3xdsL-lZxBmhbo5PskYTK5vhQKhUzkk=",
+        "https://www.freepik.com/free-photos-vectors/profile",
+       validate(value) {
+        if (!validator.isURL(value)) {
+            throw new Error("Invalid Photo URL:" + value);
+        }
+      }, 
     },
     about: {
       type: String,

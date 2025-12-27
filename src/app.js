@@ -12,7 +12,7 @@ app.post("/signup", async (req, res) => {
     await user.save();
     res.send("User Added successfull!!");
   } catch (err) {
-    res.send(400).send("Error saving the user:" + err.message);
+    res.status(400).send("Error saving the user:" + err.message);
   }
 });
 
@@ -77,7 +77,7 @@ app.patch("/user/:userId", async (req, res) =>{
     if (data?.skills.length > 10){
       throw new Error("Skills cannot be more than 10")
     };
-    
+
     const user = await User.findByIdAndUpdate({ _id: userId }, data, {
       returnDocument: "after",
       runValidators: true,
