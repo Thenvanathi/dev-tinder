@@ -73,3 +73,4 @@ EP-8
 - DATA Sanitizing - Add API validation for each field
 - Install Validator
 - Explore Validator library function and Use validator funcs for password, email, photoURL, Gender
+- NEVER TRUST req.body
