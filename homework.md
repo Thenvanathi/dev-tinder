@@ -74,3 +74,10 @@ EP-8
 - Install Validator
 - Explore Validator library function and Use validator funcs for password, email, photoURL, Gender
 - NEVER TRUST req.body
+
+EP-9
+- Validate data in Signup API
+- Install bcrypt package
+- Create PasswordHash using bcrypt.hash & save the user is excrupted password
+- Create login API
+- Compare passwords and throw errors if email or password is invalid
